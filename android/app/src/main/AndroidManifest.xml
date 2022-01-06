@@ -2,7 +2,7 @@
     package="com.lordkrohn.better_finance">
    <application
         android:label="better_finance"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
