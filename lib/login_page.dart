@@ -1,5 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'package:better_finance/theme.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -43,6 +47,20 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: CustomColors.lightGreen,
+      body: ListView(
+        children: [
+          const Positioned(
+            child: Text('BETTER FINANCE'),
+            top: 80,
+          ),
+          SignInButton(
+            Buttons.Google,
+            onPressed: () {},
+          ),
+        ],
+      ),
+    );
   }
 }
