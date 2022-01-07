@@ -11,6 +11,23 @@ import 'package:google_fonts/google_fonts.dart';
 ThemeData theme = ThemeData(
   fontFamily: GoogleFonts.openSans().fontFamily,
   primarySwatch: CustomColors.orange,
+  scaffoldBackgroundColor: CustomColors.green,
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: CustomColors.lightGreen,
+    type: BottomNavigationBarType.fixed,
+    unselectedIconTheme: IconThemeData(
+      opacity: 0.4,
+      color: Colors.black,
+    ),
+    selectedIconTheme: IconThemeData(
+      opacity: 1,
+      color: CustomColors.orange,
+    ),
+    showSelectedLabels: true,
+    showUnselectedLabels: false,
+    elevation: 10,
+    selectedItemColor: CustomColors.orange,
+  ),
 );
 
 class CustomColors {
