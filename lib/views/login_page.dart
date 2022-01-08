@@ -1,10 +1,7 @@
+import 'package:better_finance/google_sign_in_button.dart';
 import 'package:flutter/material.dart';
 
-import 'package:better_finance/theme.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:better_finance/navigation.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -47,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => Navigation(),
+            builder: (context) => const Navigation(),
           ),
         );
       }
@@ -60,37 +57,21 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: CustomColors.lightGreen,
         body: Column(
-          children: [
-            // const Padding(
-            //   padding: EdgeInsets.all(20.0),
-            //   child: Image(image: AssetImage('/assets/images/logo.png')),
-            // ),
-            SignInButton(
-              Buttons.Google,
-              onPressed: _signInWithGoogle,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Image(
+                image: AssetImage('assets/images/logo.png'),
+                height: 160,
+              ),
             ),
-            user != null
-                ? ElevatedButton(
-                    onPressed: () => _auth.signOut(),
-                    child: Text('Sign Out'),
-                  )
-                : Container()
+            GoogleSignInButton(),
           ],
         ),
       ),
     );
-  }
-
-  Future<UserCredential> _signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
-    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }

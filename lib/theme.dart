@@ -30,6 +30,28 @@ ThemeData theme = ThemeData(
   ),
 );
 
+ThemeData themeTwo = ThemeData(
+  fontFamily: GoogleFonts.openSans().fontFamily,
+  primarySwatch: Colors.indigo,
+  brightness: Brightness.dark,
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: Colors.grey,
+    type: BottomNavigationBarType.fixed,
+    unselectedIconTheme: IconThemeData(
+      opacity: 0.4,
+      color: Colors.orange,
+    ),
+    selectedIconTheme: IconThemeData(
+      opacity: 1,
+      color: Colors.orange,
+    ),
+    showSelectedLabels: true,
+    showUnselectedLabels: false,
+    elevation: 10,
+    selectedItemColor: Colors.orange,
+  ),
+);
+
 class CustomColors {
   CustomColors._();
 

@@ -1,8 +1,8 @@
-import 'package:better_finance/budget_page.dart';
-import 'package:better_finance/graph_page.dart';
-import 'package:better_finance/landing_page.dart';
-import 'package:better_finance/settings_page.dart';
+import 'package:better_finance/views/landing_page.dart';
+import 'package:better_finance/views/settings_page.dart';
 import 'package:better_finance/theme.dart';
+import 'package:better_finance/views/budget_page.dart';
+import 'package:better_finance/views/graph_page.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatefulWidget {
