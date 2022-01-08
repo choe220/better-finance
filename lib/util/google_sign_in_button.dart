@@ -1,5 +1,5 @@
-import 'package:better_finance/authentication.dart';
-import 'package:better_finance/navigation.dart';
+import 'package:better_finance/util/authentication.dart';
+import 'package:better_finance/util/navigation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';

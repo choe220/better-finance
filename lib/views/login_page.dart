@@ -1,10 +1,8 @@
-import 'package:better_finance/google_sign_in_button.dart';
+import 'package:better_finance/util/authentication.dart';
+import 'package:better_finance/util/google_sign_in_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:better_finance/navigation.dart';
-
-final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class ScaffoldSnackbar {
   ScaffoldSnackbar(this._context);
@@ -35,21 +33,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    _auth.userChanges().listen(
-          (event) => setState(() => user = event),
-        );
-
-    _auth.authStateChanges().listen((User? user) {
-      if (user != null) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const Navigation(),
-          ),
-        );
-      }
-    });
-
     super.initState();
   }
 
@@ -57,19 +40,34 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Image(
-                image: AssetImage('assets/images/logo.png'),
-                height: 160,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // const Padding(
+              //   padding: EdgeInsets.all(20.0),
+              //   child: Image(
+              //     image: AssetImage('assets/images/logo.png'),
+              //     height: 160,
+              //   ),
+              // ),
+              FutureBuilder(
+                future: Authentication.initializeFirebase(context: context),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return const Text('Error initializing Firebase');
+                  } else if (snapshot.connectionState == ConnectionState.done) {
+                    return const GoogleSignInButton();
+                  }
+                  return const CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Colors.orange,
+                    ),
+                  );
+                },
               ),
-            ),
-            GoogleSignInButton(),
-          ],
+            ],
+          ),
         ),
       ),
     );

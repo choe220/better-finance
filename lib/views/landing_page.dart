@@ -1,4 +1,4 @@
-import 'package:better_finance/theme.dart';
+import 'package:better_finance/util/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

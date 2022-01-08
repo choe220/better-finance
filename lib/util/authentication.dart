@@ -1,4 +1,4 @@
-import 'package:better_finance/navigation.dart';
+import 'package:better_finance/util/navigation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

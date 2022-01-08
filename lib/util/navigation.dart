@@ -1,4 +1,3 @@
-import 'package:better_finance/theme.dart';
 import 'package:better_finance/views/budget_page.dart';
 import 'package:better_finance/views/graph_page.dart';
 import 'package:better_finance/views/landing_page.dart';
@@ -45,7 +44,6 @@ class _NavigationState extends State<Navigation> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: CustomColors.green,
         body: PageView(
           controller: _pageController,
           onPageChanged: (index) => _pageChanged(index),
