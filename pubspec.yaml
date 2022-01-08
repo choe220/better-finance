@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: ^0.13.4
   plaid_flutter: ^2.2.0
   local_auth: ^1.1.9
   google_fonts: ^2.2.0
