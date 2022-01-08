@@ -1,5 +1,5 @@
-import 'package:better_finance/util/theme.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:better_finance/util/plaid.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
@@ -78,6 +78,14 @@ class _LandingPageState extends State<LandingPage> {
                   ),
                 ),
               ],
+            ),
+            Center(
+              child: ElevatedButton(
+                child: const Text('Get Link Token'),
+                onPressed: () async => Plaid.initializeLink(
+                  uid: FirebaseAuth.instance.currentUser!.uid,
+                ),
+              ),
             ),
           ],
         ),
