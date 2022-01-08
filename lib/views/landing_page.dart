@@ -23,7 +23,7 @@ class _LandingPageState extends State<LandingPage> {
                   height: 200,
                   child: Container(
                     decoration: const BoxDecoration(
-                        color: CustomColors.lightGreen,
+                        color: Colors.grey,
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(20),
                           bottomRight: Radius.circular(20),

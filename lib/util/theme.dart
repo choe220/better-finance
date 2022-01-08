@@ -38,12 +38,10 @@ ThemeData themeTwo = ThemeData(
     backgroundColor: Colors.grey,
     type: BottomNavigationBarType.fixed,
     unselectedIconTheme: IconThemeData(
-      opacity: 0.4,
-      color: Colors.orange,
+      opacity: 0.25,
     ),
     selectedIconTheme: IconThemeData(
       opacity: 1,
-      color: Colors.orange,
     ),
     showSelectedLabels: true,
     showUnselectedLabels: false,
