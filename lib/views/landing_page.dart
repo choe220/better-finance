@@ -80,12 +80,7 @@ class _LandingPageState extends State<LandingPage> {
               ],
             ),
             Center(
-              child: ElevatedButton(
-                child: const Text('Get Link Token'),
-                onPressed: () async => Plaid.initializeLink(
-                  uid: FirebaseAuth.instance.currentUser!.uid,
-                ),
-              ),
+              child: PlaidInitialization(),
             ),
           ],
         ),
